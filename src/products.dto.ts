@@ -8,4 +8,5 @@ export class UpdateProductDto {
 
 export class ListAllEntities {
   name: string;
+  limit: any;
 }

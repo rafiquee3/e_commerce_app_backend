@@ -15,7 +15,7 @@ import {
   UpdateProductDto,
   ListAllEntities,
 } from './products.dto';
-import { Response } from 'express';
+//import { Response } from 'express';
 import { ProductsService } from './products.service';
 import { Product } from './interfaces/product.interface';
 
