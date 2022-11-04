@@ -7,23 +7,35 @@ import {
   Put,
   Param,
   Delete,
+  Res,
+  HttpStatus,
 } from '@nestjs/common';
 import {
   CreateProductDto,
   UpdateProductDto,
   ListAllEntities,
 } from './products.dto';
+import { Response } from 'express';
+import { ProductsService } from './products.service';
+import { Product } from './interfaces/product.interface';
 
-@Controller()
+@Controller('products')
 export class ProductsController {
+  constructor(private productsService: ProductsService) {}
+
   @Post()
   create(@Body() createProductDto: CreateProductDto) {
-    return 'This action adds a new product';
+    return this.productsService.create(createProductDto);
   }
 
+  // @Get()
+  // findAll(@Res({ passthrough: true }) res: Response) {
+  //   res.status(HttpStatus.OK);
+  //   return [];
+  // }
   @Get()
-  findAll(@Query() query: ListAllEntities) {
-    return `This action returns all products (limit: ${query.limit} items)`;
+  async findAll(): Promise<Product[]> {
+    return this.productsService.findAll();
   }
 
   @Get(':id')
