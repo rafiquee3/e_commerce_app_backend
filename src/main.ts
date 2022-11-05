@@ -5,6 +5,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   // global middleware
   // app.use(logger);
+  //app.useGlobalPipes(new ValidationPipe());
   await app.listen(3000);
 }
 bootstrap();

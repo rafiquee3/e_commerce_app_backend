@@ -18,14 +18,15 @@ import {
 //import { Response } from 'express';
 import { ProductsService } from './products.service';
 import { Product } from './interfaces/product.interface';
+import { ValidationPipe } from './dto/validation.pipe';
 
 @Controller('products')
 export class ProductsController {
   constructor(private productsService: ProductsService) {}
 
   @Post()
-  create(@Body() createProductDto: CreateProductDto) {
-    return this.productsService.create(createProductDto);
+  async create(@Body(new ValidationPipe()) createProductDto: CreateProductDto) {
+    this.productsService.create(createProductDto);
   }
 
   // @Get()
