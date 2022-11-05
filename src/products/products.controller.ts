@@ -14,7 +14,7 @@ import {
   CreateProductDto,
   UpdateProductDto,
   ListAllEntities,
-} from './products.dto';
+} from './dto/create-product.dto';
 //import { Response } from 'express';
 import { ProductsService } from './products.service';
 import { Product } from './interfaces/product.interface';
