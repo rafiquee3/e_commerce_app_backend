@@ -6,6 +6,8 @@ async function bootstrap() {
   // global middleware
   // app.use(logger);
   //app.useGlobalPipes(new ValidationPipe());
+  //app.useGlobalGuards(new RolesGuard());
+  //app.useGlobalInterceptors(new LoggingInterceptor());
   await app.listen(3000);
 }
 bootstrap();
